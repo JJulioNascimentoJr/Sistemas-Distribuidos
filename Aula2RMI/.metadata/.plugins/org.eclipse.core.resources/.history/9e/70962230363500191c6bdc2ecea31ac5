@@ -1,0 +1,11 @@
+package dados;
+
+import java.rmi.RemoteException;
+
+public class ServicoRemotoImpl extends Pessoa {
+
+	public ServicoRemotoImpl() throws RemoteException {
+		super();
+	}
+
+}

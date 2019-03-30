@@ -1,0 +1,11 @@
+package dados;
+
+import java.rmi.RemoteException;
+
+public class CPF extends Pessoa {
+
+	public CPF()throws RemoteException {
+		super();
+	}
+
+}

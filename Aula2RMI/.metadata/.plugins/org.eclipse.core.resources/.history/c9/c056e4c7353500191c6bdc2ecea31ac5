@@ -1,0 +1,9 @@
+package dados;
+
+public class IServicoRemoto {
+
+	public IServicoRemoto() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

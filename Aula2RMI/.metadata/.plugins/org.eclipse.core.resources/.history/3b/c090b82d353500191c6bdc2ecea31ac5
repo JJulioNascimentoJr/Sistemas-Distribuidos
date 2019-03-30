@@ -1,0 +1,9 @@
+package dados;
+
+public class CPF {
+
+	public CPF() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

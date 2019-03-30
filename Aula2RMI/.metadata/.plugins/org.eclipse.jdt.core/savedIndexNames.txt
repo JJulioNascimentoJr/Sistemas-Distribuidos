@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Documents and Settings\Juninho\SD\Exercicio\.metadata\.plugins\org.eclipse.jdt.core
+482483844.index
+582567831.index
+453044267.index

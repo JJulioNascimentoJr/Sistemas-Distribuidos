@@ -1,0 +1,9 @@
+package dados;
+
+public class ServicoRemotoImpl {
+
+	public ServicoRemotoImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

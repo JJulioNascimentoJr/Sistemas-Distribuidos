@@ -1,0 +1,44 @@
+package cliente;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
+import dados.CPF;
+import dados.IServicoRemoto;
+
+public class AppCliente {
+
+	public static void main(String[] args) {
+		
+		try {
+			
+			IServicoRemoto objPessoa = (IServicoRemoto)Naming.lookup("rmi://localhost:8282/pessoa");
+			
+			CPF cpf = new CPF();
+			
+            cpf.setId(1);
+			cpf.setNome("Carlos");
+			cpf.setTelefone("(16) 9875-6532");
+			cpf.setIdade(28);
+			cpf.setEndereco("Av. Rio Branco");
+			cpf.setCidade("Ribeirão Preto");
+			cpf.setEstado("São Paulo");
+			cpf.setSalario(1500);
+			cpf.setNomePai("Paulo");
+			cpf.setNomeMae("Alice");
+			
+			objPessoa.inserir(cpf);
+			
+			
+		} catch (MalformedURLException e) {
+			     e.printStackTrace();
+		} catch (RemoteException e) {
+			     e.printStackTrace();
+		} catch (NotBoundException e) {
+			     e.printStackTrace();
+		}
+	}
+
+}

@@ -1,0 +1,9 @@
+package servidor;
+
+public class Servico {
+
+	public Servico() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,11 @@
+package dados;
+
+import java.rmi.RemoteException;
+
+public class CNPJ extends Pessoa{
+
+	public CNPJ() throws RemoteException {
+		super();
+	}
+
+}

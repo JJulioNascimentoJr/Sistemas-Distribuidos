@@ -1,0 +1,115 @@
+package util;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+import java.util.Random;
+
+import javax.swing.JOptionPane;
+
+public class ChatAula extends UnicastRemoteObject implements IChatAula {
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 660126223518749801L;
+
+	public ChatAula() throws RemoteException{
+		super();
+	}
+	
+	@Override
+	public void sendMessage(Message msg) throws RemoteException {
+		Message.setLstMessage(msg);
+		
+	}
+
+	@Override
+	public List<Message> retrieveMesage() throws RemoteException {
+		 return Message.getLstMessage();
+	}
+	
+	@Override
+	public boolean status()throws RemoteException{
+		
+		String id="";
+		boolean verifica=false;
+		
+		String[] codigo = {"Lptxu","qtraP","eFAbn","nMsDl","4W7vB","32gvM","WTzxz",
+				          "k3R1f","ffjcA","pnKDi","856Uy","0Tr16","aQrt6","XZnWq","hbKL7","JRBR2"};
+	    
+	   Random random = new Random();
+	   String gera = codigo[random.nextInt(codigo.length)];
+	   id=JOptionPane.showInputDialog("Digite o Código: "+gera);
+	   
+	   while(verifica==false){
+		   if(id.equals(gera)){
+		      verifica=true;
+	       }else{
+		      JOptionPane.showMessageDialog(null,"Código Informado Inválido\n"
+		      		                       + "Digite Novamente...");
+		    
+		       Random random2 = new Random();
+			   String gera2 = codigo[random2.nextInt(codigo.length)];
+			   id=JOptionPane.showInputDialog("Digite o Código: "+gera2);
+	    	   
+			   if(id.equals(gera2)){
+				  verifica=true;
+			   }	       
+		      
+		   }
+		}
+	    
+	   return verifica;
+	 }
+
+	@Override
+	public boolean closeChat(String nome) throws RemoteException {
+		boolean ok=false;
+		int opt = JOptionPane.showConfirmDialog(null ,"Deseja fechar e deslogar?", "Saída",JOptionPane.YES_NO_OPTION);
+			System.out.println("I" + opt);
+			if (opt == JOptionPane.YES_OPTION ) {
+				JOptionPane.showMessageDialog(null,"Chat: "+recebeNome(nome)+"  Status: Offline ");
+				System.exit(0);
+				ok=true;
+			}else{
+				mensagemStart(nome);
+			    
+			}
+			
+			return ok;
+	}
+    
+	@Override
+	public String nomeStart() throws RemoteException {
+		String nome;
+		
+		do{
+			nome=JOptionPane.showInputDialog("Bem Vindo, ao Chat,"
+                    + "\nQueal é o seu Nome: ?");
+		}while(nome.equals("")==true);
+		
+		return nome;
+	}
+	
+	@Override
+	public String recebeNome(String nome) throws RemoteException{
+		   return nome;
+	}
+
+	@Override
+	public String mensagemStart(String nome) throws RemoteException {
+	   
+		String msgp = JOptionPane.showInputDialog("Chat: "+recebeNome(nome)+"  Status: Online \n"
+				                                 + "APERTE OK SEM DIGITAR MENSAGEM PARA SAIR DO CHAT"
+				                                 +" \nEntre com uma Mensagem");
+		
+		if(msgp.equals("")==true){
+		    closeChat(nome);
+		}
+		
+		return msgp;
+	}
+
+}

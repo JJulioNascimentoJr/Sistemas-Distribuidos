@@ -1,0 +1,9 @@
+package dados;
+
+public class CNPJ {
+
+	public CNPJ() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

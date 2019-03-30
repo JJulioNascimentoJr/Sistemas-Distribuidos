@@ -1,0 +1,11 @@
+package dados;
+
+import java.io.Serializable;
+
+public class Pessoa implements Serializable {
+
+	public Pessoa() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
